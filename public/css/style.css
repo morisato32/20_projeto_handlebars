@@ -1,0 +1,33 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,body{
+    height: 100%;
+}
+h1,h2{
+    text-align: center;
+    padding: 1em;
+}
+
+ul{
+    display: flex;
+    justify-content: center;
+    text-decoration: none;
+    list-style: none;
+   
+   
+}
+div img{
+    width: 200px;
+    height: 200px;
+    border: 1px  solid #000;
+    margin: 0 0.5em;
+   
+}
+.book,.cadastar{
+    text-align: center;
+    margin: 0 auto;
+}
