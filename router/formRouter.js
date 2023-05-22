@@ -4,8 +4,9 @@ const router = express.Router()
 const formController = require('../controllers/formController')
 
 
+router.get('/form',formController.formVisualizar)
+router.post('/book/cadastrado',formController.formPost)
 
-router.get('/form',formController.form)
 
 
 module.exports = router;

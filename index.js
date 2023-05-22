@@ -5,14 +5,11 @@ const app = express();
 //requerindo o template engine
 const exphbs = require("express-handlebars");
 
-//mysql
-
-
 //importando o roteador
 const homeRouter = require("./router/homeRouter");
 const produtoRouter = require("./router/produtoRouter");
-const formRouter = require('./router/formRouter')
-const bookRouter = require('./router/bookRouter')
+const formRouter = require("./router/formRouter");
+const bookRouter = require("./router/bookRouter");
 
 const hbs = exphbs.create({ partialDIr: ["views", "partials"] });
 
@@ -29,10 +26,13 @@ app.use(express.static("public"));
 
 //chamando o roteador
 app.use(homeRouter);
+
 app.use(produtoRouter);
-app.use(formRouter)
-app.use(bookRouter)
+app.use(formRouter);
+app.use("/books", bookRouter);
 
-// configurando a porta que o servidor vai rodar 
-
-app.listen(3000,console.log("Servidor rodando na porta 3000 e conectado ao banco!"))
+// configurando a porta que o servidor vai rodar
+app.listen(
+  3000,
+  console.log("Servidor rodando na porta 3000 e conectado ao banco!")
+);

@@ -1,19 +1,63 @@
-const createConnecte = require("../conection/conexao");
+const createConnecte = require('../conection/conexao')
 
-const bookController = {
-  book: (req, res) => {
-    const sql = `SELECT * FROM books`;
-    createConnecte.query(sql, (error, data) => {
-      if (error ) {
-        console.log(`Ouve um erro para visualizar os livros, ${error}`);
-      }
-      const book = data;
-     console.log(book)
-     res.render('book',{book})
-    });
+const bookControler = {
+    book: (req, res) => {
+        const sql = `SELECT * FROM  books`
+        createConnecte.query(sql, (error, data) => {
+            if (error) {
+                console.log(`Ouve um erro para visualizar os livros, ${error}`)
+            } else {
+                const book = data
+                res.render('books', { book })
+            }
+        })
+    },
+    bookPorId: (req, res) => {
+        const id = req.params.id
 
-    
-  },
-};
+        const sql = `SELECT * FROM books WHERE idbooks = ${id}`
+        createConnecte.query(sql, (error, data) => {
+            if (error) {
+                console.log(`Ouve um erro para selecionar um livro, ${error}`)
+            } else {
+                const book = data[0]
+                res.render('book', { book })
+            }
+        })
+    },
 
-module.exports = bookController;
+    bookEdit: (req, res) => {
+        const id = req.params.id
+        const sql = `SELECT * FROM books WHERE idbooks = ${id}`
+        createConnecte.query(sql, (error, data) => {
+            if (error) {
+                console.log(`Ouve um erro na edição, ${error}`)
+            } else {
+                const book = data[0]
+                res.render('editbook', { book })
+            }
+        })
+    },
+    bookEditPost: (req, res) => {
+        const id = req.body.idbooks
+        console.log(id)
+        const titulo = req.body.titulo
+        console.log(titulo)
+        const pagina = req.body.pagina
+        console.log(pagina)
+
+        const sql = `UPDATE books SET titulo = '${titulo}',pagina = '${pagina}' WHERE idbooks = ${id}`
+        createConnecte.query(sql, (error) => {
+            if (error) {
+                console.log(`Ouve um erro para atualizar dados do livro, ${error}`)
+            } else {
+                res.redirect('/books')
+            }
+        })
+    }
+}
+
+
+
+
+module.exports = bookControler;

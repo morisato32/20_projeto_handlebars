@@ -1,9 +1,11 @@
 const express = require('express')
 const router = express.Router()
 
-const bookController = require('../controllers/bookController')
+const bookControler = require('../controllers/bookController')
 
-router.get('/book',bookController.book)
-router.post('/book/cadastro',bookController.book)
+router.get('/',bookControler.book)
+router.get('/:id',bookControler.bookPorId)
+router.get('/edit/:id',bookControler.bookEdit)
+router.post('/books/update',bookControler.bookEditPost)
 
-module.exports = router
+module.exports = router;

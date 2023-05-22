@@ -6,10 +6,20 @@
 
 html,body{
     height: 100%;
+    
+}
+
+#navbar{
+    display:flex;
+    justify-content:center;
+    
+}
+#navbar li{
+    padding:1em;
 }
 h1,h2{
     text-align: center;
-    padding: 1em;
+    padding: .5em;
 }
 
 ul{
@@ -27,7 +37,13 @@ div img{
     margin: 0 0.5em;
    
 }
-.book,.cadastar{
+.book,.link,.bookId{
     text-align: center;
     margin: 0 auto;
+    padding: .5em;
+ }
+.bookId p{
+    margin:.5em
 }
+
+
