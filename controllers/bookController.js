@@ -40,11 +40,11 @@ const bookControler = {
     },
     bookEditPost: (req, res) => {
         const id = req.body.idbooks
-        console.log(id)
+        
         const titulo = req.body.titulo
-        console.log(titulo)
+        
         const pagina = req.body.pagina
-        console.log(pagina)
+        
 
         const sql = `UPDATE books SET titulo = '${titulo}',pagina = '${pagina}' WHERE idbooks = ${id}`
         createConnecte.query(sql, (error) => {
@@ -56,8 +56,5 @@ const bookControler = {
         })
     }
 }
-
-
-
 
 module.exports = bookControler;
