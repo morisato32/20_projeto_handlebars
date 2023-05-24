@@ -6,5 +6,11 @@
     <div class = 'editar'>
         <a href = "/books/edit/{{book.idbooks}}">Editar</a>
     </div>
+     <div class = 'remover'>
+        <form action="/books/remove/{{book.idbooks}}" method="post">
+            <input type="submit" value="Deletar">
+             
+        </form>
+    </div>
 
 </div>

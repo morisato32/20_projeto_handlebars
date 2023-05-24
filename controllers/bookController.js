@@ -40,11 +40,11 @@ const bookControler = {
     },
     bookEditPost: (req, res) => {
         const id = req.body.idbooks
-        console.log(id)
+
         const titulo = req.body.titulo
-        console.log(titulo)
+
         const pagina = req.body.pagina
-        console.log(pagina)
+
 
         const sql = `UPDATE books SET titulo = '${titulo}',pagina = '${pagina}' WHERE idbooks = ${id}`
         createConnecte.query(sql, (error) => {
@@ -54,10 +54,22 @@ const bookControler = {
                 res.redirect('/books')
             }
         })
+    },
+    bookDeletePost: (req, res) => {
+        const id = req.params.id
+
+        const sql = `DELETE FROM books WHERE idbooks = ${id}`
+
+        createConnecte.query(sql, (error) => {
+            if (error) {
+                console.log(`Ouve um erro para deletar um livro, ${error}`)
+            } else {
+
+                res.redirect('/books')
+            }
+        })
     }
+
 }
-
-
-
 
 module.exports = bookControler;
