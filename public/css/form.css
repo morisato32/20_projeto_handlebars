@@ -19,3 +19,15 @@ form{
 form input{
     padding: .5em 2em;
 }
+
+form input[type='file']{
+    display:none;
+    
+}
+.upload{
+    padding: .6em 5em;
+    background-color: red;
+    margin-left: 3em ;
+}
+
+

@@ -4,6 +4,9 @@
 </div class = "cadastrar">
 {{#each book}}
 <div class="book">
-    {{this.idbooks}} <a href ="/books/{{this.idbooks}}"><span>#Titulo: {{this.titulo}}</span></a> - {{this.pagina}} páginas
+    {{this.idbooks}} 
+    <a href="/books/{{this.idbooks}}"><img src="data:image/png;base64,{{imagem}}" alt="{{this.titulo}}">
+</a><span>#Titulo: {{this.titulo}}</span></a> - {{this.pagina}} páginas
+<span>Autor: {{this.autor}}</span>
 </div>
 {{/each}}

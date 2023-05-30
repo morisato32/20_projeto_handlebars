@@ -3,6 +3,7 @@ const express = require("express");
 //instânciando o express
 const app = express();
 //requerindo o template engine
+const multer = require('./middleware/multer')
 const exphbs = require("express-handlebars");
 
 //importando o roteador
