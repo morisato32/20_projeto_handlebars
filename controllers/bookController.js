@@ -8,6 +8,7 @@ const bookControler = {
                 console.log(`Ouve um erro para visualizar os livros, ${error}`)
             } else {
                 const book = data
+               
                 res.render('books', { book })
             }
         })
@@ -39,14 +40,10 @@ const bookControler = {
         })
     },
     bookEditPost: (req, res) => {
-        const id = req.body.idbooks
+        const {idbooks,titulo,pagina,autor} = req.body
+       
 
-        const titulo = req.body.titulo
-
-        const pagina = req.body.pagina
-
-
-        const sql = `UPDATE books SET titulo = '${titulo}',pagina = '${pagina}' WHERE idbooks = ${id}`
+        const sql = `UPDATE books SET titulo = '${titulo}',pagina = '${pagina}',autor = '${autor}' WHERE idbooks = ${idbooks}`
         createConnecte.query(sql, (error) => {
             if (error) {
                 console.log(`Ouve um erro para atualizar dados do livro, ${error}`)
