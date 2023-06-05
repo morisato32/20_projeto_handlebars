@@ -1,16 +1,17 @@
 <div class = "bookId">
-   <h1>{{book.titulo}}</h1>
-<img src="data:image/png;base64,{{book.imagem}}" alt="{{this.titulo}}">
+    <h1>{{book.titulo}}</h1>
+    
+    <img src="data:image/png;base64,{{book.imagem}}" alt="{{this.titulo}}">
     <p>Esse livro tem {{book.pagina}} páginas</p>
     <a href = "/books">Voltar</a>
+        
     <div class = 'editar'>
         <a href = "/books/edit/{{book.idbooks}}">Editar</a>
     </div>
-     <div class = 'remover'>
+        
+    <div class = 'remover'>
         <form action="/books/remove/{{book.idbooks}}" method="post">
             <input type="submit" value="Deletar">
-             
         </form>
     </div>
-
 </div>
