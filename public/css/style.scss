@@ -1,50 +1,99 @@
-*, *::before, *::after{
+// *, *::before, *::after{
+//     margin: 0;
+//     padding: 0;
+//     box-sizing: border-box;
+// }
+
+// html{
+//     scroll-behavior: smooth;
+//     scroll-padding-top: 16px;
+// }
+
+// @import 'components/colors';
+// @import 'components/layout';
+// @import 'components/typography';
+// @import 'components/spacing';
+
+// svg{
+//     width: 100%;
+// }
+
+// body{
+//     scroll-behavior: smooth;
+//     width: 100%;
+//     height: 100vh;
+//     //background-color: $white-light;
+//     position: relative
+// }
+
+// // body::-webkit-scrollbar{ // barra de rolagem no geral
+// //     width: 10px;
+// // }
+
+// // body::-webkit-scrollbar-track{ // trilho da barra de rolagem
+// //     background-color: transparent;
+// // } 
+
+// // body::-webkit-scrollbar-thumb{ // botão da barra de rolagem
+// //     // background-color: $grey-1;
+// //     border-radius: 10px;
+// // }
+
+// @import 'components/icons';
+// @import 'components/buttons';
+// @import 'components/footer';
+// @import 'components/menu';
+// @import 'components/animations';
+
+// .border{
+//     border: 1px solid red;
+// }
+
+
+*{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-html{
-    scroll-behavior: smooth;
-    scroll-padding-top: 16px;
+html,body{
+    height: 100%;
+
 }
 
-@import 'components/colors';
-@import 'components/layout';
-@import 'components/typography';
-@import 'components/spacing';
+#navbar{
+    display:flex;
+    justify-content:center;
 
-svg{
-    width: 100%;
+}
+#navbar li{
+    padding:1em;
+}
+h1,h2{
+    text-align: center;
+    padding: .5em;
 }
 
-body{
-    scroll-behavior: smooth;
-    width: 100%;
-    height: 100vh;
-    //background-color: $white-light;
-    position: relative
+ul{
+    display: flex;
+    justify-content: center;
+    text-decoration: none;
+    list-style: none;
+
+
 }
+div img{
+    width: 200px;
+    height: 200px;
+    border: 1px  solid #000;
+    margin: 0 0.5em;
 
-// body::-webkit-scrollbar{ // barra de rolagem no geral
-//     width: 10px;
-// }
-
-// body::-webkit-scrollbar-track{ // trilho da barra de rolagem
-//     background-color: transparent;
-// } 
-
-// body::-webkit-scrollbar-thumb{ // botão da barra de rolagem
-//     // background-color: $grey-1;
-//     border-radius: 10px;
-// }
-
-@import 'components/icons';
-@import 'components/buttons';
-@import 'components/footer';
-@import 'components/menu';
-@import 'components/animations';
-
-.border{
-    border: 1px solid red;
+}
+.book,.link,.bookId{
+    text-align: center;
+    margin: 0 auto;
+    padding: .5em;
+ }
+.bookId p{
+    margin:.5em
 }
