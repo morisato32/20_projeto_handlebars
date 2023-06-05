@@ -1,0 +1,11 @@
+<h1>Livros Disponíveis</h1>
+
+{{#each book}}
+<div class="book">
+    <a href="/books/{{this.idbooks}}">
+    <img src="data:image/png;base64,{{imagem}}" 
+    alt="{{this.titulo}}"></a>
+    {{this.titulo}} - {{this.pagina}} páginas
+<span>Autor: {{this.autor}}</span>
+</div>
+{{/each}}

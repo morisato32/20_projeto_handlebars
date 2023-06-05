@@ -14,7 +14,7 @@ const bookControler = {
         })
     },
     bookPorId: (req, res) => {
-        const id = req.params.id
+        const {id} = req.params
 
         const sql = `SELECT * FROM books WHERE idbooks = ${id}`
         createConnecte.query(sql, (error, data) => {

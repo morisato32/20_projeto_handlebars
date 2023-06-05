@@ -21,7 +21,7 @@ router.post('/book/cadastrado',upload.single('file'),async (req,res) =>{
         if(err){
             console.log(`Erro ao inserir imagem no banco de dados:${err}`)
         }else{
-            res.redirect('/')
+            res.redirect('/books')
         }
     })
 })
