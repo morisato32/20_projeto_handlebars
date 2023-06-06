@@ -7,6 +7,7 @@ const multer = require('./middleware/multer')
 const exphbs = require("express-handlebars");
 
 //importando o roteador
+const homeRouter = require('./router/homeRouter')
 const formRouter = require("./router/formRouter");
 const bookRouter = require("./router/bookRouter");
 
@@ -24,6 +25,7 @@ app.use(express.json());
 app.use(express.static("public"));
 
 //chamando o roteador
+app.use(homeRouter)
 app.use(formRouter);
 app.use("/books", bookRouter);
 
