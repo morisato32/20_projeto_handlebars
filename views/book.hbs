@@ -3,7 +3,14 @@
     
     <img src="data:image/png;base64,{{book.imagem}}" alt="{{this.titulo}}">
     <p>Esse livro tem {{book.pagina}} páginas</p>
-    <a href = "/books">Voltar</a>
+    <p>{{book.descricao}}</p>
+    <button>Comprar na Amazon</button>
+   
+</div>
+
+
+
+<!-- <a href = "/books">Voltar</a>
         
     <div class = 'editar'>
         <a href = "/books/edit/{{book.idbooks}}">Editar</a>
@@ -13,5 +20,4 @@
         <form action="/books/remove/{{book.idbooks}}" method="post">
             <input type="submit" value="Deletar">
         </form>
-    </div>
-</div>
+    </div>-->

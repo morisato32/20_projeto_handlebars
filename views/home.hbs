@@ -1,1 +1,9 @@
-<h1>Página home</h1>
+<h1>Livros Recentes</h1>
+<div class="bookId">
+{{#each booksRecentes}}
+   <h1>{{this.titulo}}</h1>
+    
+    <img src="data:image/png;base64,{{this.imagem}}" alt="{{this.titulo}}">
+
+{{/each}}
+</div>
