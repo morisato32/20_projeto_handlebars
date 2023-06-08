@@ -9,7 +9,7 @@ const bookControler = {
             } else {
                 const book = data
                
-                res.render('home', { book })
+                res.render('books', { book })
             }
         })
     },

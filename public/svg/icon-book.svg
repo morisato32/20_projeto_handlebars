@@ -1,0 +1,23 @@
+<svg width="38" height="51" viewBox="0 0 38 51" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Frame 1" clip-path="url(#clip0_224_212)">
+<g id="book-icon">
+<g id="Group 5333">
+<path id="Vector" d="M1.00006 43.4629C1.00006 41.9014 1.59269 40.4039 2.64759 39.2998C3.70248 38.1957 5.13322 37.5754 6.62506 37.5754H37.0001" stroke="url(#paint0_linear_224_212)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path id="Vector_2" d="M6.62506 2.25014H37.0001V49.3504H6.62506C5.13322 49.3504 3.70248 48.7302 2.64759 47.626C1.59269 46.5219 1.00006 45.0244 1.00006 43.4629V8.13768C1.00006 6.57621 1.59269 5.07869 2.64759 3.97456C3.70248 2.87044 5.13322 2.25014 6.62506 2.25014Z" stroke="url(#paint1_linear_224_212)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+</g>
+</g>
+<defs>
+<linearGradient id="paint0_linear_224_212" x1="31.7671" y1="38.4758" x2="30.3089" y2="46.8122" gradientUnits="userSpaceOnUse">
+<stop stop-color="#259D80"/>
+<stop offset="1" stop-color="#04634D"/>
+</linearGradient>
+<linearGradient id="paint1_linear_224_212" x1="31.7671" y1="9.45382" x2="-0.745737" y2="32.6879" gradientUnits="userSpaceOnUse">
+<stop stop-color="#259D80"/>
+<stop offset="1" stop-color="#04634D"/>
+</linearGradient>
+<clipPath id="clip0_224_212">
+<rect width="38" height="50" fill="white" transform="translate(6.10352e-05 0.800293)"/>
+</clipPath>
+</defs>
+</svg>

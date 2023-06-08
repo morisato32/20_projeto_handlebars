@@ -1,0 +1,182 @@
+@mixin typeface-1($size, $device: desktop){
+    font-family: 'Mukta';
+    font-weight: 400;
+
+    @if $size == h1 and $device == desktop{
+        font-size: 96px;
+        line-height: 90%;
+    }
+    @else if $size == h1 and $device == mobile{
+        font-size: 56px;
+        line-height: 100%
+    }
+
+    @else if $size == h2 and $device == desktop{
+        font-size: 64px;
+        line-height: 100%;
+    }
+    @else if $size == h2 and $device == mobile{
+        font-size: 40px;
+        line-height: 110%;
+    }
+
+    @else if $size == h3 and $device == desktop{
+        font-size: 48px;
+        line-height: 110%;
+    }
+    @else if $size == h3 and $device == mobile{
+        font-size: 32px;
+        line-height: 120%;
+    }
+
+    @else if $size == h4 and $device == desktop{
+        font-size: 36px;
+        line-height: 120%;
+    }
+    @else if $size == h4 and $device == mobile{
+        font-size: 28px;
+        line-height: 130%;
+    }
+
+    @else if $size == h5 and $device == desktop{
+        font-size: 24px;
+        line-height: 130%;
+    }
+    @else if $size == h5 and $device == mobile{
+        font-size: 20px;
+        line-height: 140%;
+    }
+
+    @else if $size == h6 and $device == desktop{
+        font-size: 18px;
+        line-height: 140%;
+    }
+    @else if $size == h6 and $device == mobile{
+        font-size: 16px;
+        line-height: 150%;
+    }
+}
+
+@mixin typeface-2 ($size: p2, $device: desktop){
+    font-family: 'Rubik';
+    font-weight: 400;
+
+    @if $size == p1 and $device == desktop{
+        font-size: 24px;
+        line-height: 130%;
+    }
+    @else if $size == p1 and $device == mobile{
+        font-size: 18px;
+        line-height: 140%;
+    }
+
+    @if $size == p2 and $device == desktop{
+        font-size: 16px;
+        line-height: 150%;
+    }
+    @else if $size == p2 and $device == mobile{
+        font-size: 14px;
+        line-height: 150%;
+    }
+
+    @if $size == p3 and $device == desktop{
+        font-size: 14px;
+        line-height: 150%;
+    }
+    @else if $size == p3 and $device == mobile{
+        font-size: 12px;
+        line-height: 150%;
+        letter-spacing: 1px;
+    }
+}
+
+h1{
+    @include typeface-1(h1, desktop);
+    @include responsive(s){
+        @include typeface-1(h1, mobile);
+    };
+}
+
+h2{
+    @include typeface-1(h2, desktop);
+    @include responsive(s){
+        @include typeface-1(h2, mobile);
+    };
+}
+
+h3{
+    @include typeface-1(h3, desktop);
+    @include responsive(s){
+        @include typeface-1(h3, mobile);
+    };
+}
+
+h4{
+    @include typeface-1(h4, desktop);
+    @include responsive(s){
+        @include typeface-1(h4, mobile);
+    };   
+}
+
+
+h5{
+    @include typeface-1(h5, desktop);
+    @include responsive(s){
+        @include typeface-1(h5, mobile);
+    };
+}
+
+h6{
+    @include typeface-1(h6, desktop);
+    @include responsive(s){
+        @include typeface-1(h6, mobile);
+    };
+}
+
+p{
+    color: $gray-4;
+    @include typeface-2(p2, desktop);
+    @include responsive(s){
+        @include typeface-2(p2, mobile);
+    };
+}
+
+.bold{
+    font-weight: bold;
+}
+
+.letter-spacing{
+    letter-spacing: 2px;
+}
+
+.text-center{
+    text-align: center;
+}
+
+.weight-light{
+    font-weight: 300;
+}
+
+.text-white{
+    color: $white-light
+}
+.subtitle{
+    color: $black-normal;
+    @include typeface-2(p3, desktop);
+    @include responsive(s){
+        @include typeface-2(p3, mobile);
+    }
+}
+.text-green{
+    color: $secondary-normal
+}
+.text-darkgreen{
+    color: $primary-dark;
+}
+
+.text-gradient{
+    background-clip: text;
+    background: linear-gradient(226.93deg, $primary-normal 14.9%, $primary-dark 85.41%);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+}

@@ -1,17 +1,37 @@
-<div class = "bookId">
-    <h1>{{book.titulo}}</h1>
-    
-    <img src="data:image/png;base64,{{book.imagem}}" alt="{{this.titulo}}">
-    <p>Esse livro tem {{book.pagina}} páginas</p>
-    <a href = "/books">Voltar</a>
-        
-    <div class = 'editar'>
-        <a href = "/books/edit/{{book.idbooks}}">Editar</a>
+
+<section class="container">
+    <div class = "bookId">
+        <div class="row">
+            <div class="grid-7 border">
+                 <h4>{{book.titulo}}</h4>
+                 <h5 class="mt-1">{{book.autor}}</h5>
+                 <p class="mt-2">{{book.descricao}}</p>
+
+
+                <a href = "/books" class="link">Voltar</a>
+
+
+                <div class = 'editar'>
+                    <a href = "/books/edit/{{book.idbooks}}">Editar</a>
+                </div>
+
+                <div class = 'remover'>
+                    <form action="/books/remove/{{book.idbooks}}" method="post">
+                        <input type="submit" value="Deletar" class="link">
+                    </form>
+                </div>
+                <p>{{book.pagina}} páginas</p>
+            </div>
+            
+            <div class="grid-4 border">
+                <img src="data:image/png;base64,{{book.imagem}}" alt="{{this.titulo}}" class="w-100">
+            </div>
+        </div>
     </div>
-        
-    <div class = 'remover'>
-        <form action="/books/remove/{{book.idbooks}}" method="post">
-            <input type="submit" value="Deletar">
-        </form>
-    </div>
-</div>
+</section>
+
+
+{{!-- 
+* Ajustar a imagem de capa dentro do card, pois a altura da imagem não é a mesma da altura da div poster (ajustar na página home e na página books)
+* Terminar de estilizar a página book
+ --}}

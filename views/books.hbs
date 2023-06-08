@@ -1,11 +1,19 @@
-<h1>Livros Disponíveis</h1>
 
-{{#each book}}
-<div class="book">
-    <a href="/books/{{this.idbooks}}">
-    <img src="data:image/png;base64,{{imagem}}" 
-    alt="{{this.titulo}}"></a>
-    {{this.titulo}} - {{this.pagina}} páginas
-<span>Autor: {{this.autor}}</span>
-</div>
-{{/each}}
+<section class="container">
+    <div class="row">
+        <h3 class="text-gradient">Livros Disponíveis</h3>
+
+        {{#each book}}
+        <div class="grid-3 card mt-5">
+            <div class="poster">
+                <a href="/books/{{this.idbooks}}">
+                    <img src="data:image/png;base64,{{imagem}}" alt="{{this.titulo}}" class="w-100">
+                </a>
+            </div>
+            
+            <h6 class="mt-2">{{this.titulo}}</h6>
+            <p class="mt-1 subtitle">{{this.autor}}</p>
+        </div>
+        {{/each}}
+    </div>
+</section>
