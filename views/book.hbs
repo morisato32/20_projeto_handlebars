@@ -7,18 +7,15 @@
                  <h5 class="mt-1">{{book.autor}}</h5>
                  <p class="mt-2">{{book.descricao}}</p>
 
-
-                <a href = "/books" class="link">Voltar</a>
-
-
-                <div class = 'editar'>
-                    <a href = "/books/edit/{{book.idbooks}}">Editar</a>
-                </div>
-
-                <div class = 'remover'>
-                    <form action="/books/remove/{{book.idbooks}}" method="post">
-                        <input type="submit" value="Deletar" class="link">
-                    </form>
+                <div class="editar flex-start">
+                    <a href = "/books" class="link mr-3">Voltar</a>
+                    <a href = "/books/edit/{{book.idbooks}}" class="link mr-3">Editar</a>
+                    
+                    <div class = 'remover'>
+                        <form action="/books/remove/{{book.idbooks}}" method="post">
+                            <input type="submit" value="Deletar" class="link">
+                        </form>
+                    </div>
                 </div>
                 <p>{{book.pagina}} páginas</p>
             </div>
@@ -32,6 +29,6 @@
 
 
 {{!-- 
-* Ajustar a imagem de capa dentro do card, pois a altura da imagem não é a mesma da altura da div poster (ajustar na página home e na página books)
-* Terminar de estilizar a página book
+    * Ajustar a parte dos cards, a altura da imagem não é a mesma altura da div poster, ajustar nas páginas home e books
+    * terminar de estilizar a página book
  --}}
