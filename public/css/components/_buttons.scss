@@ -1,0 +1,114 @@
+a{
+    cursor: pointer;
+    display: inline-block;
+    text-decoration: none;
+    transition: .5s ease;
+    color: $white-light;
+    @include typeface-2(p2, desktop);
+    @include responsive(s){
+        @include typeface-2(p2, mobile);
+    }
+
+    &:hover{
+        opacity: .7;
+    }
+}
+
+.btn{
+    cursor: pointer;
+    display: inline-block;
+    padding: 10px 16px;
+    border: 2px solid $primary-dark;
+    border-radius: 8px;
+    transition: 1s ease;
+    position: relative;
+    @include typeface-2(p3, desktop);
+
+    @include responsive(s){
+        @include typeface-2(p3, mobile);
+    }
+
+    &:hover{
+        opacity: .9;
+        box-shadow: 2px 2px 8px rgba(37, 157, 128, .7);
+    }
+}
+
+.link{
+    display: inline-block;
+    padding: 10px 16px;
+    border: 0;
+    border-radius: 8px;
+    background: linear-gradient(226.93deg, #259D80 14.9%, #04634D 85.41%);
+    transition: 1s ease;
+
+    &:hover{
+        opacity: .9;
+        box-shadow: 2px 2px 8px rgba(37, 157, 128, .7);
+    }
+}
+.search-input{
+    border-radius: 8px 0px 0px 8px;
+    border: 0px;
+    color: $black-normal;
+    background-color: $secondary-normal;
+    accent-color: $primary-normal;
+}
+
+.search-button{
+    cursor: pointer;
+    border: 0px;
+    border-radius: 0px 8px 8px 0px;
+    background-color: $secondary-normal;
+    height: 41px;
+    width: 56px;
+    background-image: url("../svg/icon-search.svg");
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+input, select, option, textarea{
+    padding: 10px 12px;
+    background-color: $white-dark;
+    border: 1px solid $primary-dark;
+    border-radius: 8px;
+    color: $black-normal;
+    width: 100%;
+  
+    @include typeface-2(p3, desktop);
+
+    @include responsive(s){
+        @include typeface-2(p3, mobile);
+    }
+
+    &:focus{
+        outline: none;
+    }
+  }
+
+  textarea{
+    resize: none
+  }
+
+  input[type="file"]{
+    display: none;
+  }
+
+  input[type="submit"]{
+    cursor: pointer;
+    @include typeface-2(p2, desktop);
+    color: $white-light;
+    @include responsive(s){
+        @include typeface-2(p2, mobile);
+    }
+
+  }
+
+  label{
+    @include typeface-2(p3, desktop);
+
+        @include responsive(s){
+            @include typeface-2(p3, mobile);
+        }
+    
+  }

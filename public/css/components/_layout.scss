@@ -1,0 +1,416 @@
+// Layout of project
+
+// Container-devices
+$container-xl: 1440px;
+$container-l: 1216px;
+$container-m: 960px;
+$container-s: 620px;
+$container-xs: 340px;
+$gutter: 32px;
+
+// Mixin of media-queries
+@mixin responsive($device) {
+
+
+  @if $device == xl {
+    // For resolutions upper 1440px
+    @media screen and (min-width: $container-xl) {
+      @content;
+    }
+  } 
+
+  @else if $device == ul {
+    // For resolutions upper 960px
+    @media screen and (min-width: $container-m) {
+      @content;
+    }
+  } 
+  
+  @else if $device == l {
+    // For resolutions between 1140px and 1440px
+    @media screen and (max-width: $container-xl) and (min-width: $container-l) {
+      @content;
+    }
+  } 
+  
+  
+  @else if $device == m {
+    // For resolutions between 960px and 1140px
+    @media screen and (max-width: $container-l) and (min-width: $container-s) {
+      @content;
+    }
+  } 
+  
+  
+  @else if $device == s {
+    // For resolutions less than 960px
+    @media screen and (max-width: $container-m) {
+      @content;
+    }
+  } 
+  
+  
+  @else if $device == xs {
+    // For resolutions less than 340px
+    @media screen and (max-width: $container-xs) {
+      @content;
+    }
+  }
+}
+
+
+@function grid($col, $total: 12){
+  @return ($col / $total) * 100%;
+}
+
+
+@for $i from 1 through 12{
+  .grid-#{$i}{
+      width: calc(#{grid($i)} - #{$gutter});
+      margin: $gutter / 2;
+
+      padding: 16px 0px;
+      float: left;
+
+      @include responsive(s){
+          width: calc(100% - #{$gutter});
+          float: none;
+      }
+  }
+}
+
+@for $i from 1 through 12{
+  .grid-nobreak-#{$i}{
+      width: calc(#{grid($i)} - #{$gutter});
+      margin: $gutter / 2;
+
+      padding: 16px 0px;
+      float: left;
+  }
+}
+
+.container {
+    max-width: $container-l;
+    margin: 0 auto;
+  
+    padding: 96px 24px;
+  
+    overflow: hidden;
+    
+  
+    // clearfix
+    &::after{
+      content: '';
+      display: table;
+      clear: both;
+    }
+  
+    @include responsive(s) {
+      flex-direction: column;
+  
+      padding: 96px 16px;
+    }
+  }
+
+.visible{
+    overflow: visible;
+}
+
+.disappear{
+    display: block;
+
+    @include responsive(s){
+      display: none;
+    }
+}
+
+.text-nobreak{
+    white-space: nowrap;
+}
+  
+.row{
+    // clearfix
+    &::after{
+      content: '';
+      display: table;
+      clear: both;
+    }
+}
+  
+.h-100{
+    height: 100vh;
+}
+  
+.h-100p{
+    height: 100%;
+}
+  
+.relative {
+    position: relative;
+}
+
+  //Display flex
+.flex  {
+    display: flex;
+}
+
+.flex-start-top{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: row;
+}
+
+.flex-start {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.flex-end {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.flex-start-column {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+}
+.flex-end-column {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex-direction: column;
+}
+  
+.flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+  
+.flex-center-column {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+  
+.flex-space {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+}
+.flex-space-column {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+}
+.flex-around{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+}
+  
+.flex-column {
+    flex-direction: column;
+}
+
+  
+.flex-wrap {
+    flex-wrap: wrap;
+}
+  
+.flex-item-1 {
+    flex: 1 1 360px;
+}
+  
+.flex-item-2 {
+    flex: 2 1 360px;
+}
+  
+.flex-item-3 {
+    flex: 3 1 360px;
+}
+  
+.flex-item-4 {
+    flex: 4 1 360px;
+}
+  
+.flex-item-5 {
+    flex: 5 1 360px;
+}
+  
+.flex-auto {
+    flex: 1 1 auto;
+}
+  
+  // Width's
+.w-auto {
+    width: auto;
+}
+.h-auto {
+    height: auto !important;
+}
+.h-100{
+    height: 100%;
+}
+.h-80{
+    height: 80%;
+}
+.h-50{
+    height: 50%;
+}
+.w-100 {
+    width: 100%;
+}
+.w-75 {
+    width: 75%;
+}
+.w-50 {
+    width: 50%;
+}
+.w-25 {
+    width: 25%;
+}
+  
+  // Borders
+.bb-black{
+    border-bottom: 1px solid $black-light;
+}
+  
+.bt-black{
+    border-top: 1px solid $black-light;
+}
+  
+.bl-black{
+    border-left: 1px solid $black-light;
+}
+  
+.br-black{
+    border-right: 1px solid $black-light;
+}
+  
+.bb-gray{
+    border-bottom: 1px solid $gray-6;
+}
+  
+.bt-gray{
+    border-top: 1px solid $gray-6;
+}
+  
+.bl-gray{
+    border-left: 1px solid $gray-6;
+}
+  
+.br-gray{
+    border-right: 1px solid $gray-6;
+}
+
+.transition{
+    margin: 0 auto;
+    width: 6px;
+    height: 128px;
+    background: linear-gradient(180deg, rgba(37, 157, 128, 0) 10.67%, #259D80 94.76%);
+    border-radius: 3px;
+}
+
+.line-clamp {
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;  
+    overflow: hidden;
+  }
+
+// ======================================
+// ============== PAGE HOME =============
+// ======================================
+
+.banner{
+    width: 100%;
+    background-image: url("../img/bookshelf.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 372px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    position: relative;
+
+    &::after{
+        content: '';
+        width: 100%;
+        height: 372px;
+        background-color: $black-normal;
+        opacity: .5;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 0;
+    }
+}
+
+.banner-content{
+    width: $container-l;
+    margin: 0 auto;
+    z-index: 1;
+}
+
+.card{
+    padding: 24px 16px;
+    border: 1px solid $primary-dark;
+    border-radius: 8px;
+    transition: .3s ease;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+
+    &:hover{
+        box-shadow: 4px 4px 8px $gray-6;
+    }
+}
+
+.poster{
+    width: 141px;
+    height: 213px;
+}
+
+.book-img{
+    width: 141px;
+    height: 213px; 
+}
+
+
+// ======================================
+// ============= PAGE FORM ==============
+// ======================================
+
+.card-form{
+    padding: 24px 16px;
+    border: 1px solid $primary-dark;
+    border-radius: 8px;
+    transition: .3s ease;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    box-shadow: 4px 4px 8px $gray-6;
+}
+
+
+// ======================================
+// ============= PAGE BOOK ==============
+// ======================================
+
+.book-container{
+    width: 311px;
+    height: 447px;
+}

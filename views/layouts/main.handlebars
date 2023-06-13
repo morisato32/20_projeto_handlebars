@@ -5,22 +5,111 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/style.css">
-    <title>main</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@300;400&family=Rubik:ital,wght@0,400;1,300&display=swap" rel="stylesheet">
+    <title>HallBooks</title>
 </head>
 <body>
-    <nav id = "navbar">
-        <ul>
-            <li>
-                <a href = "/form">Cadastrar</a>
-            </li>
-            <li>
-                <a href = "/books">Livros</a>
-            </li>
-              <li>
-                <a href = "/">home</a>
-            </li>
-        </ul>
-    </nav>
+    <header>
+        <nav class="navbar-desktop">
+            <div class="nav-item-left">
+                <div class="logo">
+                    <a href="/">
+                        <img src="../../svg/logo.svg" class="logo-svg" alt="logo do site">
+                    </a>
+                </div>
+
+                <ul class="menu-desktop">
+                    <li class="menu-item-desktop">
+                        <a href = "/" class="menu-desktop-link">Home</a>
+                    </li>
+
+                    <li class="menu-item-desktop">
+                        <a href = "/#about" class="menu-desktop-link">Sobre</a>
+                    </li>
+
+                    <li class="menu-item-desktop">
+                        <a href = "/form" class="menu-desktop-link">Cadastrar</a>
+                    </li>
+
+                    <li class="menu-item-desktop">
+                        <a href = "/books" class="menu-desktop-link">Livros</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="nav-item-right flex-start">
+                <div class="search">
+                    <form class="flex-start">
+                        <input type="text" name="search" class="search-input" placeholder="Buscar livros">
+                        <button class="search-button"></button>
+                    </form>
+                </div>
+            </div>
+        </nav>
+    </header>
+    
     {{{body}}}
+
+    <footer>
+        <section class="container p-0">
+            <div class="row">
+                <div class="grid-4 mt-3 disappear"></div>
+
+                <div class="grid-4 mt-3 flex-center">
+                    <div class="logo">
+                            <img src="../../svg/logo.svg" class="logo-svg" alt="logo do site">
+                    </div>
+                    <h4 class="ml-1 text-white">HallBooks</h4>
+                </div>
+
+                <div class="grid-4 mt-3 disappear"></div>
+            </div>
+
+            <div class="row flex-start">
+                <div class="grid-4 py-0">
+                    <h5 class="text-green">Deixou passar algo?</h5>
+
+                    <ul class="flex-start footer-menu mt-1">
+                        <li class="footer-menu-item">
+                            <a href="/" class="footer-menu-link">Home</a>
+                        </li>
+
+                        <li class="footer-menu-item"> 
+                            <a href="/#about" class="footer-menu-link">Sobre</a>
+                        </li>
+
+                        <li class="footer-menu-item">
+                            <a href="/form" class="footer-menu-link">Cadastrar</a>
+                        </li>
+
+                        <li class="footer-menu-item">
+                            <a href="/books" class="footer-menu-link">Livros</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="grid-5 disappear"></div>
+
+                <div class="grid-3 py-1">
+                    <h5 class="text-green">Algum livro em mente?</h5>
+
+                    <div class="search mt-1">
+                        <form class="flex-start">
+                            <input type="text" name="search" class="search-input" placeholder="Buscar livros">
+                            <button class="search-button"></button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row bt-gray mt-4">
+                <div class="grid-12 py-3">
+                    <p class="text-white">2023 © Todos os Direitos Reservados.</p>
+                </div>
+            </div>
+        </section>
+    </footer>
 </body>
 </html>

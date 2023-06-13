@@ -1,21 +1,49 @@
-<link rel="stylesheet" href="/css/form.css">
-<h1>Edição de livros</h1>
+<section class="container">
+    <div class="row">
+        <div class="grid-4 disappear"></div>
 
-<form action='/books/update' method="post">
-    <div>
-        <input type = "hidden" name = "idbooks" value = {{book.idbooks}}>
-        <label for="name">Nome:</label>
-        <input type="text" name="titulo"  id="name"  placeholder="Digite o nome do livro" value = "{{book.titulo}}">
+        <div class="grid-4 card-form">
+            <h4 class="text-gradient">Edite seu livro</h4>
+
+            <form action='/books/update' method="post" class="mt-3">
+                    <input type = "hidden" name = "idbooks" value = {{book.idbooks}}>
+
+                    <div>
+                        <label for="name">Título:</label>
+                        <input type="text" name="titulo"  id="name"  placeholder="Digite o nome do livro" value = "{{book.titulo}}" class="mt-1">
+                    </div>
+
+                    <div class="mt-2">
+                        <label for="pagina">Páginas:</label>
+                        <input type="number" name="pagina" id="pagina"  placeholder="Quantas páginas o livro possui?" value = {{book.pagina}} class="mt-1">
+                    </div>
+
+                    <div class="mt-2">
+                        <label for="autor">Autor:</label>
+                        <input type="text" name="autor" id="autor"  placeholder="{{book.autor}}" value="{{book.autor}}" class="mt-1">
+                    </div>
+
+                    <div class="mt-2">
+                        <label for="description">Descrição:</label>
+                        <textarea name="descricao" id="description" 
+                        cols="30" rows="5" class="mt-1" 
+                        placeholder="{{book.descricao}}" 
+                        value="{{book.descricao}}"></textarea>
+                    </div>
+
+                    <div class="mt-2">
+                        <label for="file" class="btn">Escolher imagem</label>
+                        <input type="file" name="file" id="file">
+                    </div>
+
+                    <div class="mt-4">
+                        <input type="submit" value="Editar" class="link">
+                    </div>
+            </form>
+        </div>
+
+        <div class="grid-4 disappear"></div>
     </div>
-    <div>
-        <label for="pagina">Páginas:</label>
-        <input type="number" name="pagina" id="pagina"  placeholder="Quantas páginas o livro possui?" value = {{book.pagina}}>
-    </div>
-    <div>
-        <label for="autor">Autor:</label>
-        <input type="text" name="autor" id="autor"  placeholder="Qual o nome do autor?" value = {{book.autor}}>
-    </div>
-    <div>
-        <input type="submit" value="Editar">
-    </div>
-</form>
+</section>
+
+

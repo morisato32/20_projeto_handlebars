@@ -1,23 +1,33 @@
-<div class = "bookId">
-    <h1>{{book.titulo}}</h1>
-    
-    <img src="data:image/png;base64,{{book.imagem}}" alt="{{this.titulo}}">
-    <p>Esse livro tem {{book.pagina}} páginas</p>
-    <p>{{book.descricao}}</p>
-    <button>Comprar na Amazon</button>
-   
-</div>
+<section class="container">
+    <div class = "bookId">
+        <div class="row">
+            <div class="grid-7">
+                 <h4>{{book.titulo}}</h4>
+                 <h5 class="mt-1 text-gray2">{{book.autor}}</h5>
+                 <p class="mt-2">{{book.descricao}}</p>
 
-
-
-<!-- <a href = "/books">Voltar</a>
-        
-    <div class = 'editar'>
-        <a href = "/books/edit/{{book.idbooks}}">Editar</a>
+                <div class="flex-start mt-3">
+                    <a href = "/books" class="link mr-3">Voltar</a>
+                    <a href = "/books/edit/{{book.idbooks}}" class="link mr-3">Editar</a>
+                    
+                    <form action="/books/remove/{{book.idbooks}}" method="post">
+                        <input type="submit" value="Deletar" class="link">
+                    </form>
+                </div>
+                <p class="mt-4"><span class="text-black bold">Páginas:</span> {{book.pagina}} páginas.</p>
+            </div>
+            
+            <div class="grid-4 flex-center">
+                <div class="book-container">
+                    <img src="data:image/png;base64,{{book.imagem}}" alt="{{this.titulo}}" class="w-100">
+                </div>
+            </div>
+        </div>
     </div>
-        
-    <div class = 'remover'>
-        <form action="/books/remove/{{book.idbooks}}" method="post">
-            <input type="submit" value="Deletar">
-        </form>
-    </div>-->
+</section>
+
+
+{{!-- 
+    * Ajustar a parte dos cards, a altura da imagem não é a mesma altura da div poster, ajustar nas páginas home e books
+    * terminar de estilizar a página book
+ --}}
