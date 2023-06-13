@@ -3,7 +3,7 @@ const createConnecte = require('../conection/conexao')
 const homeController = {
     home : (req,res) =>{
         
-        const sql = `SELECT * FROM books ORDER By idbooks DESC LIMIT 2 `
+        const sql = `SELECT * FROM books ORDER By idbooks DESC LIMIT 8 `
 
         createConnecte.query(sql,(error,data) =>{
             if(error){

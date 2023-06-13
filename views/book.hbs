@@ -1,27 +1,26 @@
-
 <section class="container">
     <div class = "bookId">
         <div class="row">
-            <div class="grid-7 border">
+            <div class="grid-7">
                  <h4>{{book.titulo}}</h4>
-                 <h5 class="mt-1">{{book.autor}}</h5>
+                 <h5 class="mt-1 text-gray2">{{book.autor}}</h5>
                  <p class="mt-2">{{book.descricao}}</p>
 
-                <div class="editar flex-start">
+                <div class="flex-start mt-3">
                     <a href = "/books" class="link mr-3">Voltar</a>
                     <a href = "/books/edit/{{book.idbooks}}" class="link mr-3">Editar</a>
                     
-                    <div class = 'remover'>
-                        <form action="/books/remove/{{book.idbooks}}" method="post">
-                            <input type="submit" value="Deletar" class="link">
-                        </form>
-                    </div>
+                    <form action="/books/remove/{{book.idbooks}}" method="post">
+                        <input type="submit" value="Deletar" class="link">
+                    </form>
                 </div>
-                <p>{{book.pagina}} páginas</p>
+                <p class="mt-4"><span class="text-black bold">Páginas:</span> {{book.pagina}} páginas.</p>
             </div>
             
-            <div class="grid-4 border">
-                <img src="data:image/png;base64,{{book.imagem}}" alt="{{this.titulo}}" class="w-100">
+            <div class="grid-4 flex-center">
+                <div class="book-container">
+                    <img src="data:image/png;base64,{{book.imagem}}" alt="{{this.titulo}}" class="w-100">
+                </div>
             </div>
         </div>
     </div>

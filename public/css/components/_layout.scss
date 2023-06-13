@@ -321,8 +321,15 @@ $gutter: 32px;
     border-radius: 3px;
 }
 
+.line-clamp {
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;  
+    overflow: hidden;
+  }
+
 // ======================================
-// ============ SECTION HOME ============
+// ============== PAGE HOME =============
 // ======================================
 
 .banner{
@@ -356,7 +363,7 @@ $gutter: 32px;
 }
 
 .card{
-    padding: 24px 0px;
+    padding: 24px 16px;
     border: 1px solid $primary-dark;
     border-radius: 8px;
     transition: .3s ease;
@@ -376,6 +383,12 @@ $gutter: 32px;
     height: 213px;
 }
 
+.book-img{
+    width: 141px;
+    height: 213px; 
+}
+
+
 // ======================================
 // ============= PAGE FORM ==============
 // ======================================
@@ -392,3 +405,12 @@ $gutter: 32px;
     box-shadow: 4px 4px 8px $gray-6;
 }
 
+
+// ======================================
+// ============= PAGE BOOK ==============
+// ======================================
+
+.book-container{
+    width: 311px;
+    height: 447px;
+}

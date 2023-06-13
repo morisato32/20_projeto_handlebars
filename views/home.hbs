@@ -1,4 +1,3 @@
-
 <main>
     <div class="banner">
         <div class="banner-content mt-9">
@@ -23,15 +22,20 @@
                     <div class=" grid-3 card mt-5">
                         <div class="poster">
                             <a href="/books/{{this.idbooks}}">
-                                <img src="data:image/png;base64,{{this.imagem}}" alt="{{this.titulo}}" class="w-100">
+                                <img src="data:image/png;base64,{{this.imagem}}" alt="{{this.titulo}}" class="book-img">
                             </a>
                         </div>
-
-                            <h6 class="mt-2">{{this.titulo}}</h6>
+                            <a href="/books/{{this.idbooks}}" class="text-black">
+                                <h6 class="mt-2 line-clamp">{{this.titulo}}</h6>
+                            </a>
                             <p class="mt-1 subtitle">{{this.autor}}</p>
                     </div>
                 {{/each}}
+                
             </div>
+        </div>
+        <div class="flex-start">
+            <a href="/books" class="text-darkgreen letter-spacing mt-2">Ver todos os livros</a>
         </div>
     </section>
 </main>

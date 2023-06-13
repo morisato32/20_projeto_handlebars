@@ -146,7 +146,7 @@ p{
 }
 
 .letter-spacing{
-    letter-spacing: 2px;
+    letter-spacing: .5px;
 }
 
 .text-center{
@@ -160,6 +160,15 @@ p{
 .text-white{
     color: $white-light
 }
+
+.text-black{
+    color: $black-normal;
+}
+
+.text-gray2{
+    color: $gray-2;
+}
+
 .subtitle{
     color: $black-normal;
     @include typeface-2(p3, desktop);

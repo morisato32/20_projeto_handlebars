@@ -1,11 +1,10 @@
 a{
     cursor: pointer;
     display: inline-block;
-    color: $white-light;
     text-decoration: none;
     transition: .5s ease;
+    color: $white-light;
     @include typeface-2(p2, desktop);
-
     @include responsive(s){
         @include typeface-2(p2, mobile);
     }

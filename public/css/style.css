@@ -493,6 +493,13 @@ html {
   border-radius: 3px;
 }
 
+.line-clamp {
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
 .banner {
   width: 100%;
   background-image: url("../img/bookshelf.png");
@@ -523,7 +530,7 @@ html {
 }
 
 .card {
-  padding: 24px 0px;
+  padding: 24px 16px;
   border: 1px solid #04634D;
   border-radius: 8px;
   transition: 0.3s ease;
@@ -542,6 +549,11 @@ html {
   height: 213px;
 }
 
+.book-img {
+  width: 141px;
+  height: 213px;
+}
+
 .card-form {
   padding: 24px 16px;
   border: 1px solid #04634D;
@@ -552,6 +564,11 @@ html {
   align-items: center;
   flex-direction: column;
   box-shadow: 4px 4px 8px #9EA0A3;
+}
+
+.book-container {
+  width: 311px;
+  height: 447px;
 }
 
 h1 {
@@ -678,6 +695,14 @@ p {
 
 .text-white {
   color: #F2FAF8;
+}
+
+.text-black {
+  color: #141615;
+}
+
+.text-gray2 {
+  color: #424344;
 }
 
 .subtitle {
@@ -1434,9 +1459,9 @@ body::-webkit-scrollbar-thumb {
 a {
   cursor: pointer;
   display: inline-block;
-  color: #F2FAF8;
   text-decoration: none;
   transition: 0.5s ease;
+  color: #F2FAF8;
   font-family: "Rubik";
   font-weight: 400;
   font-size: 16px;
@@ -1483,7 +1508,7 @@ a:hover {
 
 .link {
   display: inline-block;
-  padding: 12px 16px;
+  padding: 10px 16px;
   border: 0;
   border-radius: 8px;
   background: linear-gradient(226.93deg, #259D80 14.9%, #04634D 85.41%);
@@ -1638,7 +1663,7 @@ header {
 }
 
 .navbar-desktop {
-  max-width: 1440px;
+  max-width: 1216px;
   display: flex;
   justify-content: space-between;
   align-items: center;
