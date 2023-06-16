@@ -1,0 +1,21 @@
+{{#each books}}
+<section class="container">
+    <div class="row">
+
+        <div class="grid-3 card mt-5">
+            <div class="poster">
+                <a href="/books/{{this.idbooks}}">
+                    <img src="data:image/png;base64,{{this.imagem}}" alt="{{this.titulo}}" class="w-100">
+                </a>
+            </div>
+
+            <a href="/books/{{this.idbooks}}" class="text-black">
+                <h6 class="mt-2 line-clamp">{{this.titulo}}</h6>
+            </a>
+            <p class="mt-1 subtitle">{{this.autor}}</p>
+        </div>
+
+    </div>
+</section>
+
+{{/each}}

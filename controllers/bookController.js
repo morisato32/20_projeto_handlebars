@@ -2,6 +2,10 @@ const createConnecte = require('../conection/conexao')
 
 const bookControler = {
     book: (req, res) => {
+        const searchQuery = req.query.search 
+        if(searchQuery){
+        res.redirect(`/search?search=${searchQuery}`);
+      }else{
         const sql = `SELECT * FROM  books`
         createConnecte.query(sql, (error, data) => {
             if (error) {
@@ -12,33 +16,47 @@ const bookControler = {
                 res.render('books', { book })
             }
         })
+      }
+      
     },
     bookPorId: (req, res) => {
-        const {id} = req.params
+        const searchQuery = req.query.search 
+        if(searchQuery){
+        res.redirect(`/search?search=${searchQuery}`);
+        }else{
+            const {id} = req.params
 
-        const sql = `SELECT * FROM books WHERE idbooks = ${id}`
-        createConnecte.query(sql, (error, data) => {
-            if (error) {
-                console.log(`Ouve um erro para selecionar um livro, ${error}`)
-            } else {
-                const book = data[0]
-                res.render('book', { book })
-            }
-        })
-    },
+            const sql = `SELECT * FROM books WHERE idbooks = ${id}`
+            createConnecte.query(sql, (error, data) => {
+                if (error) {
+                    console.log(`Ouve um erro para selecionar um livro, ${error}`)
+                } else {
+                    const book = data[0]
+                    res.render('book', { book })
+                }
+            })
+        }
+        },
+     
 
     bookEdit: (req, res) => {
-        const id = req.params.id
-        const sql = `SELECT * FROM books WHERE idbooks = ${id}`
-        createConnecte.query(sql, (error, data) => {
-            if (error) {
-                console.log(`Ouve um erro na edição, ${error}`)
-            } else {
-                const book = data[0]
-                res.render('editbook', { book })
-            }
-        })
-    },
+        const searchQuery = req.query.search 
+        if(searchQuery){
+        res.redirect(`/search?search=${searchQuery}`);
+        }else{
+            const id = req.params.id
+            const sql = `SELECT * FROM books WHERE idbooks = ${id}`
+            createConnecte.query(sql, (error, data) => {
+                if (error) {
+                    console.log(`Ouve um erro na edição, ${error}`)
+                } else {
+                    const book = data[0]
+                    res.render('editbook', { book })
+                }
+            })
+        }
+        },
+       
     bookEditPost: (req, res) => {
         const {idbooks,titulo,pagina,autor} = req.body
        

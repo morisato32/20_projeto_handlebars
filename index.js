@@ -8,6 +8,7 @@ const exphbs = require("express-handlebars");
 
 //importando o roteador
 const homeRouter = require('./router/homeRouter')
+const searchRouter = require('./router/searchBookRouter')
 const formRouter = require("./router/formRouter");
 const bookRouter = require("./router/bookRouter");
 
@@ -24,8 +25,11 @@ app.use(express.json());
 //arquivos estáticos
 app.use(express.static("public"));
 
+
+
 //chamando o roteador
 app.use(homeRouter)
+app.use(searchRouter)
 app.use(formRouter);
 app.use("/books", bookRouter);
 
