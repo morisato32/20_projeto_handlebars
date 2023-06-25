@@ -6,11 +6,26 @@ const app = express();
 const multer = require('./middleware/multer')
 const exphbs = require("express-handlebars");
 
+//dotenv
+const dotenv = require('dotenv')
+dotenv.config()
+
+//requerendo a session
+const session = require('express-session')
+
+//criando a session
+app.use(session({
+  secret:"SESSION_SECRET",
+  resave:true,
+  saveUninitialized:true
+}))
+
 //importando o roteador
 const homeRouter = require('./router/homeRouter')
 const searchRouter = require('./router/searchBookRouter')
 const formRouter = require("./router/formRouter");
 const bookRouter = require("./router/bookRouter");
+const userRouter = require('./router/userRouter')
 
 const hbs = exphbs.create({ partialDIr: ["views", "partials"] });
 
@@ -32,6 +47,7 @@ app.use(homeRouter)
 app.use(searchRouter)
 app.use(formRouter);
 app.use("/books", bookRouter);
+app.use('/user',userRouter)
 
 // configurando a porta que o servidor vai rodar
 app.listen(

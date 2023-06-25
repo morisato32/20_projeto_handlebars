@@ -1,28 +1,30 @@
 const createConnecte = require('../conection/conexao')
 
 const homeController = {
-    home : (req,res) =>{
-        const searchQuery = req.query.search 
-        if(searchQuery){
+    home: (req, res) => {
+        const searchQuery = req.query.search
+        if (searchQuery) {
             res.redirect(`/search?search=${searchQuery}`);
-          }else{
+        }
+        
+         else {
             const sql = `SELECT * FROM books ORDER By idbooks DESC LIMIT 8 `
 
-            createConnecte.query(sql,(error,data) =>{
-                if(error){
+            createConnecte.query(sql, (error, data) => {
+                if (error) {
                     console.log(`Ouve um erro para trazer os livros mais recentes: ${error}`)
-                }else{
+                } else {
                     const booksRecentes = data
-                   
-                    res.render('home',{booksRecentes})
+
+                    res.render('home', { booksRecentes })
                 }
             })
-    
-            
+
+
         }
-          }
-        
-       
+    }
+
+
 }
 
 module.exports = homeController;

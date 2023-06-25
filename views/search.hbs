@@ -1,7 +1,10 @@
-{{#each books}}
-<section class="container">
-    <div class="row">
 
+<section class="container">
+   
+
+    <div class="row">
+         <h4 class="text-gradient">Resultados da pesquisa </h4>
+        {{#each books}}
         <div class="grid-3 card mt-5">
             <div class="poster">
                 <a href="/books/{{this.idbooks}}">
@@ -14,8 +17,9 @@
             </a>
             <p class="mt-1 subtitle">{{this.autor}}</p>
         </div>
-
+        {{/each}}
     </div>
+     <script src="../../js/buscadorSearch.js"></script>
 </section>
+ 
 
-{{/each}}
