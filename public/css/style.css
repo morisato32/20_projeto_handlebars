@@ -7,6 +7,19 @@
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 40px;
+
+}
+#image{
+  width: 30px;
+  border-radius: 50%;
+}
+.alert{
+  width: 100%;
+  max-width: 500px;
+  text-align: center;
+  margin: 0 auto;
+ margin-top: .5em;
+ margin-bottom: .5em;
 }
 
 .color-white {
