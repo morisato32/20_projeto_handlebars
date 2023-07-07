@@ -13,6 +13,22 @@ const userController = {
         }
 
     },
+    logout: (req,res,next) =>{
+        if (req.session.imagem || !req.session.imagem) {
+            
+            createConnecte.end((err) => {
+              if (err) {
+                console.log('Erro ao encerrar a conexão com o banco de dados:', err);
+              } else {
+                console.log('Conexão encerrada com sucesso');
+              }
+            });
+            req.session.destroy();
+            res.redirect('/user/login');
+            next()
+          }
+        
+    },
 
     loginView: (req, res) => {
         const searchQuery = req.query.search

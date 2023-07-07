@@ -28,7 +28,6 @@ router.post('/cadastrar', upload.single('imagem'), async (req, res) => {
     const file = req.file
 
     let session = req.session
-    console.log(session)
 
     //validaçoes do formulario
 
@@ -40,11 +39,11 @@ router.post('/cadastrar', upload.single('imagem'), async (req, res) => {
         errors.push('O nome não pode ter menos de 3 caracteres')
     }
 
-    const match = /^[A-Za-z]+$/
-
-    if (match.test(nome)) {
-        errors.push('O nome deve conter apenas letras')
+    if (!isNaN(nome)) {
+        errors.push('O campo nome não pode conter números!.')
     }
+
+
     // campo email
     if (email === '' || email === null || typeof email === 'undefined') {
         errors.push('O campo email deve ser preenchido!');
@@ -67,55 +66,56 @@ router.post('/cadastrar', upload.single('imagem'), async (req, res) => {
         errors.push("A senha deve ter pelo menos 8 caracteres");
     }
 
-    // Verificar se o email já está cadastrado
-    createConnecte.query('SELECT COUNT(*) AS count FROM users WHERE email = ?', [email], (err, results) => {
-        if (err) {
-            console.error('Erro ao executar consulta:', err);
-        } else {
-            if (results[0].count > 0) {
-                errors.push('E-mail já cadastrado');
-
-            }
-        }
-    })
     // verifica se tem erros
     if (errors.length > 0) {
         res.render('cadastrar', { errors });
     }
 
-    if (!file) {
-         // Obtendo o código base64 da imagem
-         const imageBuffer = fs.readFileSync('public/img/perfil.webp');
-         const base64Image = imageBuffer.toString('base64');
-     
-         // Definindo a imagem padrão na sessão
-        const imgPadrao = req.session.imagem = `${base64Image}`;
-        // Realizar o cadastro do usuario sem imagem do perfil
-        createConnecte.query('INSERT INTO users (nome,email,senha,imagem) VALUES (?,?,?,?)', [nome, email, hash,imgPadrao], (err) => {
-            if (err) {
-                console.error('Erro ao cadastrar usuario:', err);
-            }  else {
-                req.flash('success', 'Cadastro realizado com sucesso!');
-                res.redirect('/');
-            }
+    // Verificar se o email já está cadastrado
+    createConnecte.query('SELECT COUNT(*) AS count FROM users WHERE email = ?', [email], (err, results) => {
+        if (err) {
+            console.error('Erro ao executar consulta:', err);
+        } else {
+            results[0].count > 0
+            errors.push('E-mail já cadastrado');
             
-        });
-    } else if (file) {
-        // Realizar o cadastro do usuario com imagem do perfil
-        const resizedImage = await sharp(req.file.buffer).resize({ width: 500 }).toBuffer()
-       const imagem = session.imagem = resizedImage.toString('base64') 
-        createConnecte.query('INSERT INTO users (nome,email,senha,imagem) VALUES (?,?,?,?)', [nome, email, hash, imagem], (err) => {
-            if (err) {
-                console.error('Erro ao cadastrar usuario:', err);
-            } else {
-                req.flash('success', 'Cadastro realizado com sucesso!');
-                res.redirect('/');
+
+            if (!file) {
+                // Obtendo o código base64 da imagem
+                const imageBuffer = fs.readFileSync('public/img/perfil.webp');
+                const base64Image = imageBuffer.toString('base64');
+
+                // Definindo a imagem padrão na sessão
+                const imgPadrao = req.session.imagem = `${base64Image}`;
+                // Realizar o cadastro do usuario sem imagem do perfil
+                createConnecte.query('INSERT INTO users (nome,email,senha,imagem) VALUES (?,?,?,?)', [nome, email, hash, imgPadrao], (err) => {
+                    if (err) {
+                        console.error('Erro ao cadastrar usuario:', err);
+                    }
+                    req.flash('success', 'Cadastro realizado com sucesso!');
+                    res.redirect('/');
+                });
             }
-        });
-    }
+        }
+    })
+
+    // Realizar o cadastro do usuario com imagem do perfil
+   if(file){
+    const resizedImage = await sharp(req.file.buffer).resize({ width: 500 }).toBuffer()
+    const imagem = session.imagem = resizedImage.toString('base64')
+    createConnecte.query('INSERT INTO users (nome,email,senha,imagem) VALUES (?,?,?,?)', [nome, email, hash, imagem], (err) => {
+        if (err) {
+            console.error('Erro ao cadastrar usuario:', err);
+        } else {
+            req.flash('success', 'Cadastro realizado com sucesso!');
+            res.redirect('/');
+        }
+    });
+   } 
+
 }
 )
-
+router.get('/logout', userController.logout)
 router.get('/login', userController.loginView)
 router.post('/login', userController.loginPost)
 
