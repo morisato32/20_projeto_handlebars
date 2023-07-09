@@ -1,5 +1,8 @@
 const mysql = require("mysql2");
+const express = require('express')
 const  dotenv = require('dotenv')
+const session = require('express-session')
+const MySQLStore = require('express-mysql-session')(session);
 dotenv.config()
 
 const createConnecte = mysql.createConnection({
@@ -15,5 +18,8 @@ createConnecte.connect((error) => {
     console.log(`Ouve um erro na conexão, ${error}`);
   }
 });
+
+
+
 
 module.exports = createConnecte;

@@ -1,9 +1,14 @@
-     {{#if errors}}
-        <div class="alert alert-danger message-erro">{{error}}</div>
-    {{/if}}
-
+   
 
 <section class="container">
+     {{#if errors.length}}
+        <div class="alert alert-danger message-erro">
+            {{#each errors}}
+                <p>{{this}}</p>
+            {{/each}}
+        </div>
+    {{/if}}
+
     <div class="row">
         <div class="grid-4 disappear"></div>
 

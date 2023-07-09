@@ -79,7 +79,7 @@ router.post('/cadastrar', upload.single('imagem'), async (req, res) => {
             results[0].count > 0
             errors.push('E-mail já cadastrado');
             
-
+        }
             if (!file) {
                 // Obtendo o código base64 da imagem
                 const imageBuffer = fs.readFileSync('public/img/perfil.webp');
@@ -96,7 +96,7 @@ router.post('/cadastrar', upload.single('imagem'), async (req, res) => {
                     res.redirect('/');
                 });
             }
-        }
+        
     })
 
     // Realizar o cadastro do usuario com imagem do perfil
@@ -118,6 +118,7 @@ router.post('/cadastrar', upload.single('imagem'), async (req, res) => {
 router.get('/logout', userController.logout)
 router.get('/login', userController.loginView)
 router.post('/login', userController.loginPost)
+router.get('/edit',userController.edituser)
 
 
 module.exports = router

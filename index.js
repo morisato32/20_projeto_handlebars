@@ -3,6 +3,8 @@ const express = require("express");
 //instânciando o express
 const app = express();
 
+const createConnecte = require('./conection/conexao')
+
 
 //requerindo o template engine
 const multer = require('./middleware/multer')
@@ -11,23 +13,37 @@ const exphbs = require("express-handlebars");
 //flash mensagem
 const flash = require('connect-flash')
 
-
-
 //dotenv
 const dotenv = require('dotenv')
 dotenv.config()
 
 //requerendo a session
 const session = require('express-session')
+const MySQLStore = require('express-mysql-session')(session);
+
+const sessionStore = new MySQLStore({
+  createDatabaseTable: true,
+  schema: {
+    tableName: 'sessions',
+    columnNames: {
+      session_id: 'session_id',
+      expires: 'expires',
+      data: 'data',
+    },
+  },
+}, createConnecte);
+
 
 //criando a session
-const oneHour = 1000 * 60 * 60;
+const oneHour = 1000 * 60 * 30; // sessão expira em 30minutos de inatividade
 app.use(session({
   secret: process.env.SECRET_SESSION,
-  resave: true,
+  resave: false,
   cookie: { maxAge: oneHour },
-  saveUninitialized: true
+  saveUninitialized: false,
+  store:sessionStore
 }))
+
 
 app.use(flash())
 
