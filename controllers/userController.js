@@ -82,11 +82,7 @@ const userController = {
                     res.render('login', { errors });
                     return;
                 }
-            } else {
-                errors.push('Imagem não encontrada!');
-                res.render('login', { errors });
-                return;
-            }
+            } 
         }
         )
     }
