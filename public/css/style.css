@@ -9,39 +9,6 @@ html {
   scroll-padding-top: 40px;
 }
 
-#img {
-  border-radius: 50%;
-  width: 40px;
-}
-
-/*.menu {
-  display: none;
- background-color: rgb(22, 20, 20);
-  padding: 10px;
-}
-
-.opcoes {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.opcoes li {
-  margin-bottom: 10px;
-}*/
-
-
-
-
-.message{
-  padding: 1em;
- border-radius: 5px;
-  text-align: center;
-  margin: 0 auto 2em;
-  max-width: 60%;
-}
-
-
 .color-white {
   color: #E6F5F2;
 }
@@ -572,8 +539,10 @@ html {
   align-items: center;
   flex-direction: column;
   text-align: center;
+  background-color: #F2FAF8;
 }
 .card:hover {
+  cursor: pointer;
   box-shadow: 4px 4px 8px #9EA0A3;
 }
 
@@ -1776,6 +1745,37 @@ header {
 .menu-desktop-link:hover::before {
   opacity: 1;
   width: 50%;
+}
+
+.profile-container {
+  position: relative;
+  padding: 8px 36px;
+  border: 1px solid red;
+  transition: 0.5s ease;
+}
+.profile-container::after {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-right: 2px solid blue;
+  border-bottom: 2px solid blue;
+  border-radius: 1px;
+  position: absolute;
+  top: 50%;
+  right: 8px;
+  transform: rotate(45deg) translate3d(0, 0, 0);
+}
+.profile-container:hover::after {
+  top: 50%;
+  right: 8px;
+  transform: rotate(45deg) translate3d(0, 8px, 0);
+}
+
+.profile-img {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  overflow: hidden;
 }
 
 .border {
