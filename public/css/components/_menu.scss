@@ -3,7 +3,7 @@ header{
     height: 72px;
     position: fixed;
     z-index: 999;
-    background-color: $secondary-dark;
+    background-color: $primary-dark;
 }
 
 .logo{
@@ -18,6 +18,7 @@ header{
     width: 48px;
     height: 48px;
 }
+
 .navbar-desktop{
     max-width: $container-l;
     display: flex;
@@ -45,6 +46,7 @@ header{
 }
 
 .menu-item-desktop{
+    border: 1px solid red;
     position: relative;
     margin-left: $gap-4;
 }
@@ -97,40 +99,96 @@ header{
     }
 }
 
-.profile-container{
+.btn-login{
+    display: inline-block;
+    padding: 10px 16px;
+    border: 0;
+    border-radius: 8px;
+    background: $secondary-dark;
+    transition: .5s ease;
+
+    &:hover{
+        opacity: .7;
+    }
+}
+
+.profile-img{
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+}
+.profile{
+    cursor: pointer;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
     position: relative;
-    padding: 8px 36px;
-    border: 1px solid red;
     transition: .5s ease;
 
     &::after{
         content: '';
         width: 8px;
         height: 8px;
-        border-right: 2px solid blue;
-        border-bottom: 2px solid blue;
+        border-right: 2px solid $secondary-normal;
+        border-bottom: 2px solid $secondary-normal;
         border-radius: 1px;
         position: absolute;
-        top: 50%;
-        right: 8px;
-        transform: rotate(45deg) translate3d(0, 0, 0);
+        top: 42%;
+        right: -16px;
+        transform: rotate(45deg) translate3d(0px, 0px, 0px);
+        transition: .5s ease;
     }
 
     &:hover{
+        opacity: .9;
         &::after{
             top: 50%;
-            right: 8px;
-            transform: rotate(45deg) translate3d(0, 8px, 0);
         }
     }
 }
 
+.dropdown-menu{
+    width: 200px;
+    list-style: none;
+    position: absolute;
+    top: 52px;
+    left: 24px;
+    background-color: $primary-dark;
+    padding: 16px 24px;
+    border-radius: 16px;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    align-items: center;
+    opacity: 1;
+    pointer-events: all;
+    transition: .5s ease;
+}
 
+.dropdown-item{
+    width: 100%;
+}
 
+.dropdown-link{
+    width: 100%;
+    display: inline-block;
+    padding: 8px 16px;
+    position: relative;
 
-.profile-img{
-    width: 48px;
-    height: 48px;
-    border-radius: 50%;
-    overflow: hidden;
+    &::after{
+        content: '';
+        position: absolute;
+        top: 90%;
+        left: 8px;
+        width: 0%;
+        height: 2px;
+        background-color: $secondary-normal;
+        transition: .5s ease;
+    }
+
+    &:hover{
+        &::after{
+            width: 90%;
+        }
+    }
 }

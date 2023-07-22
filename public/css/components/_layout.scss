@@ -377,6 +377,7 @@ $gutter: 32px;
     &:hover{
         cursor: pointer;
         box-shadow: 4px 4px 8px $gray-6;
+        transform: translate3d(0px, -8px, 0px);
     }
 }
 

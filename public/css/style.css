@@ -544,6 +544,7 @@ html {
 .card:hover {
   cursor: pointer;
   box-shadow: 4px 4px 8px #9EA0A3;
+  transform: translate3d(0px, -8px, 0px);
 }
 
 .poster {
@@ -725,7 +726,7 @@ p {
 }
 
 .text-green {
-  color: #41D1AE;
+  color: #6CE0C4;
 }
 
 .text-darkgreen {
@@ -1481,13 +1482,13 @@ a:hover {
   opacity: 0.7;
 }
 
-.btn {
+.btn-secondary {
   cursor: pointer;
   display: inline-block;
   padding: 10px 16px;
   border: 2px solid #04634D;
   border-radius: 8px;
-  transition: 1s ease;
+  transition: 0.5s ease;
   position: relative;
   font-family: "Rubik";
   font-weight: 400;
@@ -1495,7 +1496,7 @@ a:hover {
   line-height: 150%;
 }
 @media screen and (max-width: 960px) {
-  .btn {
+  .btn-secondary {
     font-family: "Rubik";
     font-weight: 400;
     font-size: 12px;
@@ -1503,12 +1504,13 @@ a:hover {
     letter-spacing: 1px;
   }
 }
-.btn:hover {
+.btn-secondary:hover {
   opacity: 0.9;
-  box-shadow: 2px 2px 8px rgba(37, 157, 128, 0.7);
+  background-color: #04634D;
+  color: #E6F5F2;
 }
 
-.link {
+.btn-primary {
   display: inline-block;
   padding: 10px 16px;
   border: 0;
@@ -1516,7 +1518,7 @@ a:hover {
   background: linear-gradient(226.93deg, #259D80 14.9%, #04634D 85.41%);
   transition: 1s ease;
 }
-.link:hover {
+.btn-primary:hover {
   opacity: 0.9;
   box-shadow: 2px 2px 8px rgba(37, 157, 128, 0.7);
 }
@@ -1525,7 +1527,7 @@ a:hover {
   border-radius: 8px 0px 0px 8px;
   border: 0px;
   color: #141615;
-  background-color: #41D1AE;
+  background-color: #259D80;
   accent-color: #259D80;
 }
 
@@ -1533,7 +1535,7 @@ a:hover {
   cursor: pointer;
   border: 0px;
   border-radius: 0px 8px 8px 0px;
-  background-color: #41D1AE;
+  background-color: #259D80;
   height: 41px;
   width: 56px;
   background-image: url("../svg/icon-search.svg");
@@ -1607,8 +1609,26 @@ label {
   }
 }
 
+::-moz-placeholder {
+  color: #424344;
+  opacity: 1;
+}
+
+::placeholder {
+  color: #424344;
+  opacity: 1;
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: #424344;
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+  color: #424344;
+}
+
 footer {
-  background: linear-gradient(226.93deg, #259D80 14.9%, #04634D 85.41%);
+  background: #04634D;
 }
 
 .footer-menu {
@@ -1619,6 +1639,7 @@ footer {
 }
 
 .footer-menu-item {
+  border: 1px solid red;
   margin-right: 24px;
 }
 
@@ -1648,7 +1669,7 @@ header {
   height: 72px;
   position: fixed;
   z-index: 999;
-  background-color: #0A8C6D;
+  background-color: #04634D;
 }
 
 .logo {
@@ -1692,6 +1713,7 @@ header {
 }
 
 .menu-item-desktop {
+  border: 1px solid red;
   position: relative;
   margin-left: 32px;
 }
@@ -1747,35 +1769,92 @@ header {
   width: 50%;
 }
 
-.profile-container {
-  position: relative;
-  padding: 8px 36px;
-  border: 1px solid red;
+.btn-login {
+  display: inline-block;
+  padding: 10px 16px;
+  border: 0;
+  border-radius: 8px;
+  background: #0A8C6D;
   transition: 0.5s ease;
 }
-.profile-container::after {
-  content: "";
-  width: 8px;
-  height: 8px;
-  border-right: 2px solid blue;
-  border-bottom: 2px solid blue;
-  border-radius: 1px;
-  position: absolute;
-  top: 50%;
-  right: 8px;
-  transform: rotate(45deg) translate3d(0, 0, 0);
-}
-.profile-container:hover::after {
-  top: 50%;
-  right: 8px;
-  transform: rotate(45deg) translate3d(0, 8px, 0);
+.btn-login:hover {
+  opacity: 0.7;
 }
 
 .profile-img {
   width: 48px;
   height: 48px;
   border-radius: 50%;
-  overflow: hidden;
+}
+
+.profile {
+  cursor: pointer;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  position: relative;
+  transition: 0.5s ease;
+}
+.profile::after {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-right: 2px solid #41D1AE;
+  border-bottom: 2px solid #41D1AE;
+  border-radius: 1px;
+  position: absolute;
+  top: 42%;
+  right: -16px;
+  transform: rotate(45deg) translate3d(0px, 0px, 0px);
+  transition: 0.5s ease;
+}
+.profile:hover {
+  opacity: 0.9;
+}
+.profile:hover::after {
+  top: 50%;
+}
+
+.dropdown-menu {
+  width: 200px;
+  list-style: none;
+  position: absolute;
+  top: 52px;
+  left: 24px;
+  background-color: #04634D;
+  padding: 16px 24px;
+  border-radius: 16px;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  align-items: center;
+  opacity: 1;
+  pointer-events: all;
+  transition: 0.5s ease;
+}
+
+.dropdown-item {
+  width: 100%;
+}
+
+.dropdown-link {
+  width: 100%;
+  display: inline-block;
+  padding: 8px 16px;
+  position: relative;
+}
+.dropdown-link::after {
+  content: "";
+  position: absolute;
+  top: 90%;
+  left: 8px;
+  width: 0%;
+  height: 2px;
+  background-color: #41D1AE;
+  transition: 0.5s ease;
+}
+.dropdown-link:hover::after {
+  width: 90%;
 }
 
 .border {

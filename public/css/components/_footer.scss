@@ -1,5 +1,5 @@
 footer{
-    background: linear-gradient(226.93deg, #259D80 14.9%, #04634D 85.41%);
+    background: $primary-dark;
 }
 
 .footer-menu{
@@ -10,6 +10,7 @@ footer{
 }
 
 .footer-menu-item{
+    border: 1px solid red;
     margin-right: $gap-3;
 }
 
