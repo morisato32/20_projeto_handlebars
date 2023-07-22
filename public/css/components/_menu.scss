@@ -112,16 +112,9 @@ header{
     }
 }
 
-.profile-img{
-    width: 48px;
-    height: 48px;
-    border-radius: 50%;
-}
-.profile{
+.profile-container{
+    padding-right: 32px;
     cursor: pointer;
-    width: 48px;
-    height: 48px;
-    border-radius: 50%;
     position: relative;
     transition: .5s ease;
 
@@ -134,17 +127,32 @@ header{
         border-radius: 1px;
         position: absolute;
         top: 42%;
-        right: -16px;
+        right: 16px;
         transform: rotate(45deg) translate3d(0px, 0px, 0px);
         transition: .5s ease;
     }
 
-    &:hover{
-        opacity: .9;
+    &:hover{s
         &::after{
             top: 50%;
         }
     }
+}
+
+.profile-img{
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+
+    &:hover{
+        opacity: .9;
+    }
+}
+.profile{
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    
 }
 
 .dropdown-menu{
@@ -152,17 +160,18 @@ header{
     list-style: none;
     position: absolute;
     top: 52px;
-    left: 24px;
+    left: 0px;
     background-color: $primary-dark;
     padding: 16px 24px;
-    border-radius: 16px;
+    border-radius: 8px 8px 16px 16px;
     display: flex;
     justify-content: flex-start;
     flex-direction: column;
     align-items: center;
-    opacity: 1;
-    pointer-events: all;
+    opacity: 0;
+    pointer-events: none;
     transition: .5s ease;
+    
 }
 
 .dropdown-item{
@@ -191,4 +200,9 @@ header{
             width: 90%;
         }
     }
+}
+
+.active-dropdown-menu{
+    opacity: 1;
+    pointer-events: all;
 }
