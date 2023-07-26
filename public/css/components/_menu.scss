@@ -3,7 +3,7 @@ header{
     height: 72px;
     position: fixed;
     z-index: 999;
-    background-color: $secondary-dark;
+    background-color: $primary-dark;
 }
 
 .logo{
@@ -18,13 +18,18 @@ header{
     width: 48px;
     height: 48px;
 }
+
 .navbar-desktop{
-    max-width: $container-l;
+    max-width: $container-xl;
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin: 0 auto;
     padding: 10px 24px;
+
+    @include responsive(s){
+        display: none;
+    }
 }
 
 .nav-item-left{
@@ -45,7 +50,8 @@ header{
 }
 
 .menu-item-desktop{
-    position: relative;
+    border: 1px solid red;
+    // position: relative;
     margin-left: $gap-4;
 }
 
@@ -97,30 +103,191 @@ header{
     }
 }
 
+.btn-login{
+    display: inline-block;
+    padding: 10px 16px;
+    border: 0;
+    border-radius: 8px;
+    background: $secondary-dark;
+    transition: .5s ease;
+
+    &:hover{
+        opacity: .7;
+    }
+}
+
 .profile-container{
+    padding-right: 32px;
+    cursor: pointer;
     position: relative;
-    padding: 8px 36px;
-    border: 1px solid red;
     transition: .5s ease;
 
     &::after{
         content: '';
         width: 8px;
         height: 8px;
-        border-right: 2px solid blue;
-        border-bottom: 2px solid blue;
+        border-right: 2px solid $secondary-normal;
+        border-bottom: 2px solid $secondary-normal;
         border-radius: 1px;
         position: absolute;
-        top: 50%;
-        right: 8px;
-        transform: rotate(45deg) translate3d(0, 0, 0);
+        top: 42%;
+        right: 16px;
+        transform: rotate(45deg) translate3d(0px, 0px, 0px);
+        transition: .5s ease;
+    }
+
+    &:hover{s
+        &::after{
+            top: 50%;
+        }
+    }
+}
+
+.profile-img{
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+
+    &:hover{
+        opacity: .9;
+    }
+}
+.profile{
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    
+}
+
+.dropdown-menu{
+    width: 200px;
+    list-style: none;
+    position: absolute;
+    top: 52px;
+    left: -130px;
+    background-color: $primary-dark;
+    padding: 16px 24px;
+    border-radius: 8px 8px 16px 16px;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: .5s ease;
+    
+}
+
+.dropdown-item{
+    width: 100%;
+}
+
+.dropdown-link{
+    width: 100%;
+    display: inline-block;
+    padding: 8px 16px;
+    position: relative;
+
+    &::after{
+        content: '';
+        position: absolute;
+        top: 90%;
+        left: 8px;
+        width: 0%;
+        height: 2px;
+        background-color: $secondary-normal;
+        transition: .5s ease;
     }
 
     &:hover{
         &::after{
-            top: 50%;
-            right: 8px;
-            transform: rotate(45deg) translate3d(0, 8px, 0);
+            width: 90%;
+        }
+    }
+}
+
+.active-dropdown-menu{
+    opacity: 1;
+    pointer-events: all;
+
+
+}
+// ===========================================
+// ============== NAVBAR MOBILE ============== 
+// =========================================== 
+.navbar-mobile{
+    max-width: $container-xl;
+    margin: 0 auto;
+    display: none;
+    padding: 10px 24px;
+    transition: .7s ease;
+    @include responsive(s){
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+}
+
+.bx{
+    width: 36px;
+    height: 36px;
+    position: relative;
+    cursor: pointer;
+    z-index: 999;
+
+    &::after{
+        content: '';
+        position: absolute;
+        top: 68%;
+        left: 50%;
+        width: 70%;
+        height: 2px;
+        background-color: $primary-normal;
+        transform-origin: center;
+        transform: translate(-50%, -50%);
+        transition: .5s ease;
+    }
+    &::before{
+        content: '';
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        width: 70%;
+        height: 2px;
+        background-color: $primary-normal;
+        transform-origin: center;
+        transform: translate(-50%, -50%);
+        transition: .5s ease;
+    }
+}
+
+// ===========================================
+// ============== MENU MOBILE ================ 
+// =========================================== 
+.menu-mobile{
+    height: 100vh;
+    width: 100%;
+    margin-top: 72px;
+    position: absolute;
+    top: 0;
+    left: -100%;
+    background-color: $primary-dark;
+    transition: .5s ease;
+    z-index: 990;
+
+    li{
+        // border: 1px solid $primary-normal;
+
+        .link-menu-mobile{
+            width: 100%;
+            height: 100%;
+            display: inline-block;
+            padding: 24px 16px 24px 16px;
+
+            &:hover{
+                background-color: $secondary-dark;
+                padding: 24px 16px 24px 24px;
+            }
         }
     }
 }
@@ -128,9 +295,45 @@ header{
 
 
 
-.profile-img{
-    width: 48px;
-    height: 48px;
-    border-radius: 50%;
-    overflow: hidden;
+// ===========================================
+// ============== ACTIVE CLASSES =============
+// ===========================================
+
+.menu-mobile.showmenu{
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.bx.active{
+    width: 36px;
+    height: 36px;
+    position: relative;
+    cursor: pointer;
+    z-index: 999;
+
+    &::after{
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 70%;
+        height: 2px;
+        background-color: $primary-normal;
+        transform-origin: center;
+        transform: translate(-50%, -50%) rotate(135deg);
+        transition: .5s ease;
+    }
+    &::before{
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 70%;
+        height: 2px;
+        background-color: $primary-normal;
+        transform-origin: center;
+        transform: translate(-50%, -50%) rotate(-315deg);
+        transition: .5s ease;
+    }
 }

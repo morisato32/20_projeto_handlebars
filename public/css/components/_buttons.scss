@@ -14,13 +14,13 @@ a{
     }
 }
 
-.btn{
+.btn-secondary{
     cursor: pointer;
     display: inline-block;
     padding: 10px 16px;
     border: 2px solid $primary-dark;
     border-radius: 8px;
-    transition: 1s ease;
+    transition: .5s ease;
     position: relative;
     @include typeface-2(p3, desktop);
 
@@ -30,42 +30,57 @@ a{
 
     &:hover{
         opacity: .9;
-        box-shadow: 2px 2px 8px rgba(37, 157, 128, .7);
+        background-color: $primary-dark;
+        color: $white-normal;
     }
 }
 
-.link{
+.btn-primary{
     display: inline-block;
     padding: 10px 16px;
     border: 0;
     border-radius: 8px;
     background: linear-gradient(226.93deg, #259D80 14.9%, #04634D 85.41%);
-    transition: 1s ease;
+    transition: .5s ease;
 
     &:hover{
         opacity: .9;
         box-shadow: 2px 2px 8px rgba(37, 157, 128, .7);
     }
 }
+
 .search-input{
     border-radius: 8px 0px 0px 8px;
     border: 0px;
     color: $black-normal;
-    background-color: $secondary-normal;
-    accent-color: $primary-normal;
+    background-color: $primary-normal;
+    accent-color: $secondary-normal;
+
+    @include responsive(s){
+        width: 296px;
+    }
 }
 
 .search-button{
     cursor: pointer;
     border: 0px;
     border-radius: 0px 8px 8px 0px;
-    background-color: $secondary-normal;
+    background-color: $primary-normal;
+    margin-left: -1px;
     height: 41px;
     width: 56px;
     background-image: url("../svg/icon-search.svg");
     background-position: center center;
     background-repeat: no-repeat;
+
+    @include responsive(s){
+        margin-left: -1px;
+        height: 38px;
+        width: 56px;
+    }
+    
 }
+
 
 input, select, option, textarea{
     padding: 10px 12px;
@@ -112,3 +127,42 @@ input, select, option, textarea{
         }
     
   }
+
+::placeholder{
+    color: $gray-2;
+    opacity: 1;
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: $gray-2;
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+    color: $gray-2;
+}
+
+.link{
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    padding: 8px 16px;
+    
+    &::after{
+        content: '';
+        position: absolute;
+        top: 80%;
+        left: 8px;
+        width: 0;
+        height: 2px;
+        background-color: $primary-normal;
+        border: 0;
+        border-radius: 1px;
+        transition: .5s ease;
+    }
+
+    &:hover{
+        &::after{
+            width: 90%;
+        }
+    }
+}
