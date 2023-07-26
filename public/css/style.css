@@ -264,6 +264,7 @@ html {
 .container {
   max-width: 1216px;
   margin: 0 auto;
+  position: relative;
   padding: 96px 24px;
   overflow: hidden;
 }
@@ -276,6 +277,19 @@ html {
   .container {
     flex-direction: column;
     padding: 96px 16px;
+  }
+}
+
+@media screen and (max-width: 960px) {
+  .responsive-grid {
+    width: calc(50% - 32px);
+    float: left;
+  }
+}
+@media screen and (max-width: 540px) {
+  .responsive-grid {
+    width: calc(100% - 32px);
+    float: none;
   }
 }
 
@@ -340,14 +354,21 @@ html {
 .flex-start-column {
   display: flex;
   justify-content: flex-start;
-  align-items: center;
+  align-items: flex-start;
   flex-direction: column;
+}
+@media screen and (max-width: 960px) {
+  .flex-start-column {
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
 }
 
 .flex-end-column {
   display: flex;
   justify-content: flex-end;
-  align-items: center;
+  align-items: flex-end;
   flex-direction: column;
 }
 
@@ -516,7 +537,7 @@ html {
   width: 100%;
   height: 372px;
   background-color: #141615;
-  opacity: 0.5;
+  opacity: 0.6;
   position: absolute;
   top: 0;
   left: 0;
@@ -524,6 +545,7 @@ html {
 }
 
 .banner-content {
+  padding: 96px 24px;
   width: 1216px;
   margin: 0 auto;
   z-index: 1;
@@ -567,6 +589,12 @@ html {
   align-items: center;
   flex-direction: column;
   box-shadow: 4px 4px 8px #9EA0A3;
+}
+@media screen and (max-width: 960px) {
+  .card-form {
+    margin: 0 auto;
+    max-width: 420px;
+  }
 }
 
 .book-container {
@@ -1516,7 +1544,7 @@ a:hover {
   border: 0;
   border-radius: 8px;
   background: linear-gradient(226.93deg, #259D80 14.9%, #04634D 85.41%);
-  transition: 1s ease;
+  transition: 0.5s ease;
 }
 .btn-primary:hover {
   opacity: 0.9;
@@ -1528,7 +1556,12 @@ a:hover {
   border: 0px;
   color: #141615;
   background-color: #259D80;
-  accent-color: #259D80;
+  accent-color: #41D1AE;
+}
+@media screen and (max-width: 960px) {
+  .search-input {
+    width: 296px;
+  }
 }
 
 .search-button {
@@ -1536,11 +1569,19 @@ a:hover {
   border: 0px;
   border-radius: 0px 8px 8px 0px;
   background-color: #259D80;
+  margin-left: -1px;
   height: 41px;
   width: 56px;
   background-image: url("../svg/icon-search.svg");
   background-position: center center;
   background-repeat: no-repeat;
+}
+@media screen and (max-width: 960px) {
+  .search-button {
+    margin-left: -1px;
+    height: 38px;
+    width: 56px;
+  }
 }
 
 input, select, option, textarea {
@@ -1627,6 +1668,28 @@ label {
   color: #424344;
 }
 
+.link {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  padding: 8px 16px;
+}
+.link::after {
+  content: "";
+  position: absolute;
+  top: 80%;
+  left: 8px;
+  width: 0;
+  height: 2px;
+  background-color: #259D80;
+  border: 0;
+  border-radius: 1px;
+  transition: 0.5s ease;
+}
+.link:hover::after {
+  width: 90%;
+}
+
 footer {
   background: #04634D;
 }
@@ -1686,12 +1749,17 @@ header {
 }
 
 .navbar-desktop {
-  max-width: 1216px;
+  max-width: 1440px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin: 0 auto;
   padding: 10px 24px;
+}
+@media screen and (max-width: 960px) {
+  .navbar-desktop {
+    display: none;
+  }
 }
 
 .nav-item-left {
@@ -1714,7 +1782,6 @@ header {
 
 .menu-item-desktop {
   border: 1px solid red;
-  position: relative;
   margin-left: 32px;
 }
 
@@ -1824,7 +1891,7 @@ s .profile-container:hover::after {
   list-style: none;
   position: absolute;
   top: 52px;
-  left: 0px;
+  left: -130px;
   background-color: #04634D;
   padding: 16px 24px;
   border-radius: 8px 8px 16px 16px;
@@ -1864,6 +1931,113 @@ s .profile-container:hover::after {
 .active-dropdown-menu {
   opacity: 1;
   pointer-events: all;
+}
+
+.navbar-mobile {
+  max-width: 1440px;
+  margin: 0 auto;
+  display: none;
+  padding: 10px 24px;
+  transition: 0.7s ease;
+}
+@media screen and (max-width: 960px) {
+  .navbar-mobile {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+.bx {
+  width: 36px;
+  height: 36px;
+  position: relative;
+  cursor: pointer;
+  z-index: 999;
+}
+.bx::after {
+  content: "";
+  position: absolute;
+  top: 68%;
+  left: 50%;
+  width: 70%;
+  height: 2px;
+  background-color: #259D80;
+  transform-origin: center;
+  transform: translate(-50%, -50%);
+  transition: 0.5s ease;
+}
+.bx::before {
+  content: "";
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  width: 70%;
+  height: 2px;
+  background-color: #259D80;
+  transform-origin: center;
+  transform: translate(-50%, -50%);
+  transition: 0.5s ease;
+}
+
+.menu-mobile {
+  height: 100vh;
+  width: 100%;
+  margin-top: 72px;
+  position: absolute;
+  top: 0;
+  left: -100%;
+  background-color: #04634D;
+  transition: 0.5s ease;
+  z-index: 990;
+}
+.menu-mobile li .link-menu-mobile {
+  width: 100%;
+  height: 100%;
+  display: inline-block;
+  padding: 24px 16px 24px 16px;
+}
+.menu-mobile li .link-menu-mobile:hover {
+  background-color: #0A8C6D;
+  padding: 24px 16px 24px 24px;
+}
+
+.menu-mobile.showmenu {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.bx.active {
+  width: 36px;
+  height: 36px;
+  position: relative;
+  cursor: pointer;
+  z-index: 999;
+}
+.bx.active::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 70%;
+  height: 2px;
+  background-color: #259D80;
+  transform-origin: center;
+  transform: translate(-50%, -50%) rotate(135deg);
+  transition: 0.5s ease;
+}
+.bx.active::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 70%;
+  height: 2px;
+  background-color: #259D80;
+  transform-origin: center;
+  transform: translate(-50%, -50%) rotate(-315deg);
+  transition: 0.5s ease;
 }
 
 .border {

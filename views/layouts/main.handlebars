@@ -5,25 +5,21 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    {{!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous"> --}}
     <link rel="stylesheet" href="/css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Mukta:wght@300;400&family=Rubik:ital,wght@0,400;1,300&display=swap"
-        rel="stylesheet">
-    {{!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"> --}}
+    <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@300;400&family=Rubik:ital,wght@0,400;1,300&display=swap" rel="stylesheet">
     <title>HallBooks</title>
+    <link rel="icon" type="image/x-icon" href="../../svg/logo.svg">
 </head>
 
 <body>
     {{#if successMessage}}
     <div class="alert alert-success message">{{successMessage}}</div>
     {{/if}}
+
     <header>
-
-
+        {{!-- ============== NAVBAR DESKTOP ============== --}}
         <nav class="navbar-desktop">
             <div class="nav-item-left">
                 <div class="logo">
@@ -43,7 +39,6 @@
 
                     {{#if session}}
                         {{#if session.imagem}}
-
                             <li class="menu-item-desktop" style="display: none;">
                                 <a href="/user/cadastrar" class="menu-desktop-link">Cadastre-se</a>
                             </li>
@@ -57,8 +52,8 @@
                                 <a href="/user/cadastrar" class="menu-desktop-link">Cadastre-se</a>
                             </li>
 
-                            <li class="menu-item-desktop">
-                                <a href="/form" class="mt-3 menu-desktop-link" style="display: none;">Cadastrar Livros</a>
+                            <li class="menu-item-desktop" style="display: none;">
+                                <a href="/form" class="mt-3 menu-desktop-link" >Cadastrar Livros</a>
                             </li>
                         {{/if}}
                     {{/if}}
@@ -80,7 +75,7 @@
             
                 {{#if session}}
                     {{#if session.imagem}}      
-                        <div class="ml-3 profile-container border">                 
+                        <div class="ml-3 profile-container ">                 
                             <div class="profile">
                                 <img class="profile-img" src="data:image/png;base64,{{session.imagem}}" usemap="opcoes">
                             </div>
@@ -115,14 +110,73 @@
             </div>
         </nav>
 
+        {{!-- ============== NAVBAR MOBILE ============== --}}
+        <nav class="navbar-mobile">
+            <div class="bx"></div>
+
+            <div class="logo">
+                <a href="/">
+                    <img src="../../svg/logo.svg" class="logo-svg" alt="logo do site">
+                </a>
+            </div>
+
+            <div>
+                <a href="/user/login" class="btn-login">Login</a>
+            </div>
+        </nav>
     </header>
 
+        {{!-- ============== MENU MOBILE ============== --}}
+    <div class='relative'>
+        <div class='menu-mobile'>
+            <ul class='nav-mobile'>
+                <li> 
+                    <a href="/" class="link-menu-mobile">Home</a> 
+                </li>
+
+                {{#if session}}
+                        {{#if session.imagem}}
+
+                            <li style="display: none;">
+                                <a href="/user/cadastrar" class="link-menu-mobile">Cadastre-se</a>
+                            </li>
+
+                            <li>
+                                <a href="/form" class="link-menu-mobile">Cadastrar Livros</a>
+                            </li>
+                            
+                        {{else}}
+                            <li>
+                                <a href="/user/cadastrar" class="link-menu-mobile">Cadastre-se</a>
+                            </li>
+
+                            <li>
+                                <a href="/form" style="display: none;" class="link-menu-mobile">Cadastrar Livros</a>
+                            </li>
+                        {{/if}}
+                    {{/if}}
+                    
+                    <li>
+                        <a href="/books" class="link-menu-mobile">Livros</a>
+                    </li>
+
+                <li class='px-2 py-2'>
+                    <form class="flex-start">
+                        <input type="text" name="search" class="search-input" placeholder="Buscar livros">
+                        <button class="search-button"></button>
+                    </form>
+                </li>
+            </ul>
+            
+        </div>
+    </div>
 
 
     {{{body}}}
 
+
     <footer>
-        <section class="container p-0">
+        <section class="container py-0">
             <div class="row">
                 <div class="grid-4 mt-3 disappear"></div>
 
@@ -136,8 +190,8 @@
                 <div class="grid-4 mt-3 disappear"></div>
             </div>
 
-            <div class="row flex-start">
-                <div class="grid-6 border py-0">
+            <div class="row">
+                <div class="grid-6 flex-start-column py-0">
                     <h5 class="text-green">Deixou passar algo?</h5>
 
                     <ul class="flex-start footer-menu mt-1">
@@ -151,9 +205,9 @@
 
                         {{#if session}}
                             {{#if session.imagem}}
-                                <li class="footer-menu-item">
+                                <li class="footer-menu-item" style="display: none;">
                                     <a href="/user/cadastrar" class="footer-menu-link" 
-                                    style="display: none;">Cadastre-se</a>
+                                    >Cadastre-se</a>
                                 </li>
 
                                 <li class="footer-menu-item">
@@ -161,9 +215,9 @@
                                 </li>
 
                         {{else}}
-                            <li class="footer-menu-item">
+                            <li class="footer-menu-item" style="display: none;">
                                 <a href="/form" class="footer-menu-link" 
-                                style="display: none;">Cadastrar Livros</a>
+                                >Cadastrar Livros</a>
                             </li>
                             
                             <li class="footer-menu-item">
@@ -182,7 +236,7 @@
 
                 <div class="grid-3 disappear"></div>
 
-                <div class="grid-3 py-1">
+                <div class="grid-3 flex-center-column py-1">
                     <h5 class="text-green">Algum livro em mente?</h5>
 
                     <div class="search mt-1">
@@ -204,12 +258,10 @@
 
 
 
-    {{!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
-        crossorigin="anonymous"></script> --}}
     <script src="../../js/mensagemDeSucesso.js"></script>
     <script src="../../js/submenuHeader.js"></script>
     <script src="../../js/dropdown.js"></script>
+    <script src="../../js/menuMobile.js"></script>
 
 </body>
 
