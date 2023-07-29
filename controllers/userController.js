@@ -75,6 +75,7 @@ const userController = {
 
                 if (bcrypt.compareSync(senha, senhaHash)) {
                     // sessão ativa
+                   
                     req.session.imagem = imagePath;
                     res.redirect('/');
                 } else {
